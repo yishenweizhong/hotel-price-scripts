@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="免费下载酒店价格采集脚本，在自己的 Mac 上读取携程桌面 App 与已登录的抖音来客，导入门店名单并导出 Excel。">
+  <meta name="theme-color" content="#1658d4">
+  <title>酒店价格采集 · 免费脚本下载</title>
+  <style>
+    :root{--blue:#1658d4;--ink:#14253c;--muted:#53637a;--paper:#fff;--wash:#f2f6fc;--line:#dce4ee}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif;line-height:1.7}
+    a{color:var(--blue)}button,a{-webkit-tap-highlight-color:transparent}a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #ef9e23;outline-offset:5px}
+    .wrap{max-width:1060px;margin:auto;padding:0 30px}nav{display:flex;align-items:center;justify-content:space-between;padding:25px 0;border-bottom:1px solid var(--line);gap:20px}
+    .brand{font-size:19px;font-weight:650;letter-spacing:-.5px}.nav-link{text-decoration:none;font-size:14px}
+    .hero{display:grid;grid-template-columns:1.25fr 1fr;gap:65px;align-items:center;padding:78px 0 65px}
+    h1{font-size:clamp(32px,4.6vw,51px);line-height:1.3;letter-spacing:-1.4px;margin:0 0 22px;font-weight:650}h1 span{display:block}
+    .intro{color:var(--muted);font-size:17px;max-width:31em;margin:0 0 26px}.download{display:inline-flex;gap:12px;align-items:center;justify-content:center;border-radius:10px;background:var(--blue);color:#fff;text-decoration:none;padding:15px 22px;font-weight:600;font-size:17px}
+    .download:hover{background:#1049b5}.download svg{width:21px;height:21px}.meta{font-size:13px;color:var(--muted);margin:15px 0 0}
+    .platform{margin-top:25px;padding:12px 0 12px 15px;border-left:3px solid var(--blue);font-size:14px;color:var(--muted)}.platform strong{color:var(--ink)}
+    .package{background:var(--wash);padding:29px;border:1px solid var(--line);border-radius:18px}.package-top{display:flex;gap:18px;align-items:center;padding-bottom:22px;border-bottom:1px solid var(--line)}
+    .package-icon{background:var(--blue);color:#fff;border-radius:12px;padding:13px;display:flex}.package-icon svg{width:30px;height:30px}
+    .package h2{font-size:20px;line-height:1.4;margin:0 0 3px}.package p{margin:0;font-size:13px;color:var(--muted)}
+    .package dl{margin:18px 0 0}.package dl div{display:flex;justify-content:space-between;gap:20px;padding:10px 0}.package dt{color:var(--muted);font-size:14px}.package dd{margin:0;font-size:14px;font-weight:550}
+    section{padding:44px 0;border-top:1px solid var(--line)}section h2{font-size:25px;letter-spacing:-.5px;margin:0 0 22px}.steps{list-style:none;counter-reset:step;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+    .steps li{counter-increment:step}.steps li:before{content:counter(step);display:inline-flex;width:31px;height:31px;align-items:center;justify-content:center;background:var(--wash);color:var(--blue);border-radius:50%;font-weight:650;margin-bottom:12px}.steps h3{font-size:17px;margin:0 0 8px}.steps p{font-size:14px;color:var(--muted);margin:0}
+    code{font:inherit;background:var(--wash);border-radius:4px;padding:1px 4px;color:var(--ink)}.detail-link{display:inline-block;margin-top:24px;font-size:14px}
+    .notes{max-width:760px;font-size:14px;color:var(--muted)}.notes p{margin:0 0 14px}.notes strong{color:var(--ink)}details{border-bottom:1px solid var(--line);padding:16px 0}summary{cursor:pointer;font-size:16px;font-weight:550}details p{color:var(--muted);font-size:14px;margin:12px 0 2px;max-width:760px}
+    .checksum{font-size:12px;overflow-wrap:anywhere;color:var(--muted);margin-top:25px}.checksum code{display:block;margin-top:6px;padding:10px 13px}
+    footer{margin:25px 0 0;border-top:1px solid var(--line);padding:24px 0 36px;display:flex;align-items:center;justify-content:space-between;gap:20px;color:var(--muted);font-size:12px}
+    .share{border:1px solid var(--line);background:white;border-radius:8px;padding:9px 13px;font:inherit;cursor:pointer;color:var(--ink);white-space:nowrap}
+    @media(max-width:720px){.wrap{padding:0 22px}.hero{grid-template-columns:1fr;gap:30px;padding:45px 0 35px}h1{letter-spacing:-.8px}.intro{font-size:16px}.package{padding:22px}.steps{grid-template-columns:1fr;gap:24px}.steps li{padding-left:44px;position:relative}.steps li:before{position:absolute;left:0;top:0}section{padding:32px 0}footer{align-items:flex-start;flex-direction:column}.download{width:100%}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav aria-label="页面导航"><div class="brand">酒店价格采集</div><a class="nav-link" href="#guide">使用方法</a></nav>
+    <main>
+      <div class="hero">
+        <div>
+          <h1><span>门店房价核对，</span><span>在自己的电脑上完成。</span></h1>
+          <p class="intro">导入酒店名单，采集携程与抖音来客价格，保存截图证据，导出 Excel。下载免费脚本，双击启动操作页。</p>
+          <a class="download" href="https://github.com/yishenweizhong/hotel-price-scripts/releases/download/v1.1.0-scripts/HotelPriceScripts-macOS-arm64-v1.1.0.zip">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/></svg>
+            免费下载 Mac 脚本包
+          </a>
+          <p class="meta">v1.1.0 · 61 MB · 更新于 2026 年 11 月 9 日</p>
+          <div class="platform"><strong>适用：M 系列 Mac，macOS 13 或更新版本。</strong><br>Windows 和 Intel Mac 暂不支持。无需安装 Python、TRAE 或技能插件。</div>
+        </div>
+        <aside class="package" aria-label="下载包内容">
+          <div class="package-top">
+            <div class="package-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 21V3h11v18M16 9h4v12M2 21h20M8 7h5M8 11h5M8 15h5"/></svg></div>
+            <div><h2>一份完整的脚本包</h2><p>解压后保留整个文件夹</p></div>
+          </div>
+          <dl>
+            <div><dt>启动入口</dt><dd>双击启动</dd></div>
+            <div><dt>运行依赖</dt><dd>已经配好</dd></div>
+            <div><dt>源代码与说明</dt><dd>随包提供</dd></div>
+            <div><dt>结果保存</dt><dd>本机 Excel 与截图</dd></div>
+            <div><dt>脚本费用</dt><dd>免费</dd></div>
+          </dl>
+        </aside>
+      </div>
+      <section id="guide">
+        <h2>第一次使用，按这三步操作</h2>
+        <ol class="steps">
+          <li><h3>下载并解压</h3><p>点击下载按钮，双击 ZIP 解压，把整个文件夹放在桌面等固定位置。不要只移动启动文件。</p></li>
+          <li><h3>准备自己的账号</h3><p>安装携程桌面 App 和<a href="https://www.google.com/chrome/" target="_blank" rel="noopener noreferrer">免费 Google Chrome</a>，在自己的电脑上完成登录。</p></li>
+          <li><h3>双击开始</h3><p>打开 <code>启动采集.command</code>，按系统提示授权。操作页打开后，下载模板、导入门店、检查连接，再开始采集。</p></li>
+        </ol>
+        <a class="detail-link" href="https://github.com/yishenweizhong/hotel-price-scripts/releases/download/v1.1.0-scripts/使用说明.md">下载完整使用说明</a>
+      </section>
+      <section>
+        <h2>下载前了解这些</h2>
+        <div class="notes">
+          <p><strong>携程采集使用桌面 App。</strong>脚本读取使用者授权的携程窗口；抖音来客使用自己登录后的可见页面或官方商品导出文件。采集期间请保持电脑解锁，并保留终端窗口。</p>
+          <p><strong>首次打开可能遇到 macOS 提示。</strong>这个免费脚本包没有 Apple 公证。如系统拦截，请按包内说明，在“系统设置 → 隐私与安全性”中查看“仍要打开”选项，并开启辅助功能、屏幕录制权限。</p>
+          <p><strong>有明确的验证范围。</strong>已通过 115 项测试，以及解压后的启动、名单导入、Excel 导出和退出验证。完整真实平台批量采集仍需在使用者自己的账号环境中核验；当前实测来客账号没有可见商品导出按钮，自动批量导出尚未完成真实验收。</p>
+        </div>
+      </section>
+      <section>
+        <h2>常见问题</h2>
+        <details><summary>需要付费或开通 Apple 开发者会员吗？</summary><p>脚本本身免费，使用它不需要购买 Apple 开发者会员。使用中的网络、携程与抖音来客账号由使用者自行准备。</p></details>
+        <details><summary>需要把账号密码发给别人吗？</summary><p>不用。请在自己的携程 App 和脚本打开的专用 Chrome 窗口中登录。下载页只提供文件，不接收平台密码或门店数据。</p></details>
+        <details><summary>如何停止？下次还能查看结果吗？</summary><p>回到启动时的终端窗口，按 Control + C，等待脚本停止。已保存的数据保留在本机；再次启动后从“历史任务”查看或继续。只关闭操作页不会停止脚本。</p></details>
+        <details><summary>下载按钮打不开怎么办？</summary><p>文件托管在 GitHub，访问速度因网络而异。可以打开<a href="https://github.com/yishenweizhong/hotel-price-scripts/releases/tag/v1.1.0-scripts" target="_blank" rel="noopener noreferrer">备用下载页面</a>，在 Assets 中选择 ZIP。仍无法访问时，可请转发者直接发送脚本 ZIP。</p></details>
+        <div class="checksum">脚本 ZIP 的 SHA-256（供维护者核对文件完整性）<code>e882b63629e5dbd9bd9af1bd2938ca85dde49e36079944a3ef5a454140af844d</code></div>
+      </section>
+    </main>
+    <footer><span>本机自动化脚本。此下载页不代表携程或抖音官方产品。</span><button class="share" id="share" type="button">复制页面网址</button><span id="share-status" role="status" aria-live="polite"></span></footer>
+  </div>
+  <script>
+    document.getElementById("share").addEventListener("click",async()=>{
+      const status=document.getElementById("share-status");
+      try{await navigator.clipboard.writeText("https://yishenweizhong.github.io/hotel-price-scripts/");status.textContent="已复制，可以直接转发。";}
+      catch{status.textContent="请复制浏览器地址栏中的网址。";}
+    });
+  </script>
+</body>
+</html>
