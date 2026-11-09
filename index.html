@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="免费下载酒店价格采集脚本，在自己的 Mac 上读取携程桌面 App 与已登录的抖音来客，导入门店名单并导出 Excel。">
+  <meta name="description" content="下载可双击打开的 Mac 应用，上传门店表、选择日期、采集携程与来客价格，下载 Excel。">
   <meta name="theme-color" content="#1658d4">
-  <title>酒店价格采集 · 免费脚本下载</title>
+  <title>酒店价格采集 · Mac 应用下载</title>
   <style>
     :root{--blue:#1658d4;--ink:#14253c;--muted:#53637a;--paper:#fff;--wash:#f2f6fc;--line:#dce4ee}
     *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif;line-height:1.7}
@@ -39,60 +39,61 @@
       <div class="hero">
         <div>
           <h1><span>门店房价核对，</span><span>在自己的电脑上完成。</span></h1>
-          <p class="intro">导入酒店名单，采集携程与抖音来客价格，保存截图证据，导出 Excel。下载免费脚本，双击启动操作页。</p>
-          <a class="download" href="https://github.com/yishenweizhong/hotel-price-scripts/releases/download/v1.1.0-scripts/HotelPriceScripts-macOS-arm64-v1.1.0.zip">
+          <p class="intro">已有表格直接上传，一列门店名称、一列 POI ID 就够，无须套模板。选好日期，点击开始，下载 Excel。解压后双击蓝色酒店图标即可打开。</p>
+          <a class="download" href="https://github.com/yishenweizhong/hotel-price-scripts/releases/download/v1.2.1-app/HotelPriceApp-macOS-arm64-v1.2.1.zip" download>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/></svg>
-            免费下载 Mac 脚本包
+            下载 Mac 应用
           </a>
-          <p class="meta">v1.1.0 · 61 MB · 更新于 2026 年 11 月 9 日</p>
+          <p class="meta">v1.2.1 · 71 MB · 2026 年 11 月 9 日 · 免费试用版</p>
           <div class="platform"><strong>适用：M 系列 Mac，macOS 13 或更新版本。</strong><br>Windows 和 Intel Mac 暂不支持。无需安装 Python、TRAE 或技能插件。</div>
         </div>
         <aside class="package" aria-label="下载包内容">
           <div class="package-top">
             <div class="package-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 21V3h11v18M16 9h4v12M2 21h20M8 7h5M8 11h5M8 15h5"/></svg></div>
-            <div><h2>一份完整的脚本包</h2><p>解压后保留整个文件夹</p></div>
+            <div><h2>应用就在解压文件夹里</h2><p>蓝色图标 · 携程价格抓取.app</p></div>
           </div>
           <dl>
-            <div><dt>启动入口</dt><dd>双击启动</dd></div>
+            <div><dt>启动入口</dt><dd>双击应用图标</dd></div>
             <div><dt>运行依赖</dt><dd>已经配好</dd></div>
-            <div><dt>源代码与说明</dt><dd>随包提供</dd></div>
-            <div><dt>结果保存</dt><dd>本机 Excel 与截图</dd></div>
-            <div><dt>脚本费用</dt><dd>免费</dd></div>
+            <div><dt>使用说明</dt><dd>双击“先看这里”</dd></div>
+            <div><dt>结果保存</dt><dd>本机 Excel 与来源记录</dd></div>
+            <div><dt>应用费用</dt><dd>免费</dd></div>
           </dl>
         </aside>
       </div>
       <section id="guide">
         <h2>第一次使用，按这三步操作</h2>
         <ol class="steps">
-          <li><h3>下载并解压</h3><p>点击下载按钮，双击 ZIP 解压，把整个文件夹放在桌面等固定位置。不要只移动启动文件。</p></li>
+          <li><h3>下载并解压</h3><p>点击下载按钮，双击 ZIP 解压。文件夹里蓝色图标的“携程价格抓取”就是应用。</p></li>
           <li><h3>准备自己的账号</h3><p>安装携程桌面 App 和<a href="https://www.google.com/chrome/" target="_blank" rel="noopener noreferrer">免费 Google Chrome</a>，在自己的电脑上完成登录。</p></li>
-          <li><h3>双击开始</h3><p>打开 <code>启动采集.command</code>，按系统提示授权。操作页打开后，下载模板、导入门店、检查连接，再开始采集。</p></li>
+          <li><h3>双击应用图标</h3><p>双击 <code>携程价格抓取.app</code>。也可拖到旁边的 Applications（应用程序），以后从启动台打开。应用里按四步完成采集。</p></li>
         </ol>
-        <a class="detail-link" href="https://github.com/yishenweizhong/hotel-price-scripts/releases/download/v1.1.0-scripts/UserGuide.md">下载完整使用说明</a>
+        <a class="detail-link" href="./guide.html">打开图文使用说明 →</a>
       </section>
       <section>
         <h2>下载前了解这些</h2>
         <div class="notes">
-          <p><strong>携程采集使用桌面 App。</strong>脚本读取使用者授权的携程窗口；抖音来客使用自己登录后的可见页面或官方商品导出文件。采集期间请保持电脑解锁，并保留终端窗口。</p>
-          <p><strong>首次打开可能遇到 macOS 提示。</strong>这个免费脚本包没有 Apple 公证。如系统拦截，请按包内说明，在“系统设置 → 隐私与安全性”中查看“仍要打开”选项，并开启辅助功能、屏幕录制权限。</p>
-          <p><strong>有明确的验证范围。</strong>已通过 115 项测试，以及解压后的启动、名单导入、Excel 导出和退出验证。完整真实平台批量采集仍需在使用者自己的账号环境中核验；当前实测来客账号没有可见商品导出按钮，自动批量导出尚未完成真实验收。</p>
+          <p><strong>携程使用桌面 App，来客直接读券名和售价。</strong>快速模式读取自己登录后的商品列表，不为来客截图。携程保留原始截图，来客保存文字来源；采集期间保持电脑解锁。</p>
+          <p><strong>首次打开可能遇到 macOS 提示。</strong>这个应用还没有 Apple 公证。如系统拦截，在“系统设置 → 隐私与安全性”中查看“仍要打开”。应用会提示携程所需的辅助功能、屏幕录制权限。</p>
+          <p><strong>138 项测试通过。</strong>已验证常见导出列名、列顺序交换、说明页、无表头名单，以及在应用里选择对应列。真实平台完整批量采集仍需核验。基础券价参考未含日期加价，套餐和预约条件不明时会保留提醒。</p>
         </div>
       </section>
       <section>
         <h2>常见问题</h2>
-        <details><summary>需要付费或开通 Apple 开发者会员吗？</summary><p>脚本本身免费，使用它不需要购买 Apple 开发者会员。使用中的网络、携程与抖音来客账号由使用者自行准备。</p></details>
-        <details><summary>需要把账号密码发给别人吗？</summary><p>不用。请在自己的携程 App 和脚本打开的专用 Chrome 窗口中登录。下载页只提供文件，不接收平台密码或门店数据。</p></details>
-        <details><summary>如何停止？下次还能查看结果吗？</summary><p>回到启动时的终端窗口，按 Control + C，等待脚本停止。已保存的数据保留在本机；再次启动后从“历史任务”查看或继续。只关闭操作页不会停止脚本。</p></details>
-        <details><summary>下载按钮打不开怎么办？</summary><p>文件托管在 GitHub，访问速度因网络而异。可以打开<a href="https://github.com/yishenweizhong/hotel-price-scripts/releases/tag/v1.1.0-scripts" target="_blank" rel="noopener noreferrer">备用下载页面</a>，在 Assets 中选择 ZIP。仍无法访问时，可请转发者直接发送脚本 ZIP。</p></details>
-        <div class="checksum">脚本 ZIP 的 SHA-256（供维护者核对文件完整性）<code>e882b63629e5dbd9bd9af1bd2938ca85dde49e36079944a3ef5a454140af844d</code></div>
+        <details><summary>需要付费或开通 Apple 开发者会员吗？</summary><p>应用本身免费，使用它不需要购买 Apple 开发者会员。网络、携程与抖音来客账号由使用者自行准备。</p></details>
+        <details><summary>需要把账号密码发给别人吗？</summary><p>不用。在自己的携程 App 和应用打开的专用 Chrome 窗口中登录。下载页不接收平台密码或门店数据。</p></details>
+        <details><summary>下载完，应用在哪？</summary><p>双击下载的 ZIP，打开解压出来的文件夹，找蓝色酒店图标“携程价格抓取.app”。Finder 可能隐藏 .app 后缀。双击图标就能打开。</p></details>
+        <details><summary>必须按照模板改表格吗？</summary><p>不用。一列门店名称、一列 POI ID 就够，列顺序不限。支持 poi名称[最新]、poi_id[最新]、店铺名称等常见导出列名，内容明确的无表头名单也能识别。认不准时，在应用预览里点选对应列。城市和地址可选。</p></details>
+        <details><summary>如何停止？下次还能查看结果吗？</summary><p>关闭应用窗口，或按 Command + Q。已保存的数据保留在本机；下次从“历史任务”查看或继续。</p></details>
+        <details><summary>维护者：源码与文件校验</summary><p><a href="https://github.com/yishenweizhong/hotel-price-scripts/releases/download/v1.2.1-app/HotelPriceApp-source-v1.2.1.zip" download>下载源代码</a>。应用 ZIP 的 SHA-256：<code class="checksum">c47c4f725367f5efa0d704ebfff9567d6c6b2c362bf04478764380d98ed09879</code>。</p></details>
       </section>
     </main>
-    <footer><span>本机自动化脚本。此下载页不代表携程或抖音官方产品。</span><button class="share" id="share" type="button">复制页面网址</button><span id="share-status" role="status" aria-live="polite"></span></footer>
+    <footer><span>免费 Mac 应用。此页不代表携程或抖音官方产品。</span><button class="share" id="share" type="button">复制页面网址</button><span id="share-status" role="status" aria-live="polite"></span></footer>
   </div>
   <script>
     document.getElementById("share").addEventListener("click",async()=>{
       const status=document.getElementById("share-status");
-      try{await navigator.clipboard.writeText("https://yishenweizhong.github.io/hotel-price-scripts/");status.textContent="已复制，可以直接转发。";}
+      try{if(location.protocol==="file:"){status.textContent="这是本地预览，请直接转发新版应用 ZIP。";return;}await navigator.clipboard.writeText(location.href);status.textContent="已复制，可以直接转发。";}
       catch{status.textContent="请复制浏览器地址栏中的网址。";}
     });
   </script>
