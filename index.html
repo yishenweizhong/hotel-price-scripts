@@ -40,12 +40,12 @@
         <div>
           <h1><span>门店房价核对，</span><span>在自己的电脑上完成。</span></h1>
           <p class="intro">已有表格直接上传，一列门店名称、一列 POI ID 就够，无须套模板。新版分别显示携程权限、电脑解锁和来客登录状态，缺哪一项就按提示处理。两平台检查通过后开始采集，下载 Excel。</p>
-          <a class="download" href="https://github.com/yishenweizhong/hotel-price-scripts/releases/download/v1.3.2-app/HotelPriceApp-macOS-arm64-v1.3.2.zip" download>
+          <a class="download" href="https://github.com/yishenweizhong/hotel-price-scripts/releases/download/v1.3.3-app/HotelPriceApp-macOS-arm64-v1.3.3.zip" download>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/></svg>
             下载 Mac 应用
           </a>
-          <p class="meta">v1.3.2 · 约 71 MB · 2026 年 11 月 11 日 · 连接修复试用版</p>
-          <p class="platform"><strong>用过旧版：这次需要下载替换一次。</strong><br>先退出旧版，把新版放进“应用程序”并替换。名单和历史任务保留。打开后确认左下角显示 v1.3.2；后续仍在这个网址更新，应用里也可检查更新。</p>
+          <p class="meta">v1.3.3 · 约 71 MB · 2026 年 11 月 11 日 · 连接修复试用版</p>
+          <p class="platform"><strong>用过旧版：这次需要下载替换一次。</strong><br>先退出旧版，把新版放进“应用程序”并替换。名单和历史任务保留。打开后确认左下角显示 v1.3.3；后续仍在这个网址更新，应用里也可检查更新。</p>
           <p class="platform"><strong>首次打开：先拖到“应用程序”。</strong><br>若 Apple 提示无法验证，点“完成”，再到“系统设置 → 隐私与安全性”选择“仍要打开”。<a href="./guide.html">查看安装与授权步骤 →</a></p>
           <div class="platform"><strong>适用：M 系列 Mac，macOS 13 或更新版本。</strong><br>Windows 和 Intel Mac 暂不支持。无需安装 Python、TRAE 或技能插件。</div>
         </div>
@@ -77,7 +77,7 @@
         <div class="notes">
           <p><strong>携程使用桌面 App，来客直接读券名和售价。</strong>快速模式读取自己登录后的商品列表，不为来客截图。携程保留原始截图，来客保存文字来源；采集期间保持电脑解锁。</p>
           <p><strong>首次打开可能遇到 macOS 提示。</strong>这个应用还没有 Apple 公证。如系统拦截，在“系统设置 → 隐私与安全性”中查看“仍要打开”。应用会提示携程所需的辅助功能、屏幕录制权限。</p>
-          <p><strong>164 项回归测试通过。</strong>本次五轮修改覆盖旧版切换、主应用权限检测、来客断连恢复、采集入口和状态界面；v1.3.2 进一步修复来客门店候选慢加载、复选框不可点击和商品查询读取旧列表的问题。真实平台完整批量采集仍需核验，尚未验证所有用户电脑。基础券价参考未含日期加价，套餐和预约条件不明时会保留提醒。</p>
+          <p><strong>181 项回归测试通过。</strong>本次五轮修改覆盖旧版切换、主应用权限检测、来客断连恢复、采集入口和状态界面；v1.3.3 补上携程前台切换、首页酒店入口、候选等待及失败重试的页面恢复；保留来客候选慢加载、复选框和商品列表更新修复。真实平台完整批量采集仍需核验，尚未验证所有用户电脑。基础券价参考未含日期加价，套餐和预约条件不明时会保留提醒。</p>
         </div>
       </section>
       <section>
@@ -88,8 +88,8 @@
         <details><summary>必须按照模板改表格吗？</summary><p>不用。一列门店名称、一列 POI ID 就够，列顺序不限。支持 poi名称[最新]、poi_id[最新]、店铺名称等常见导出列名，内容明确的无表头名单也能识别。认不准时，在应用预览里点选对应列。城市和地址可选。</p></details>
         <details open><summary>携程和来客都登录了，为什么“开始采集”还是灰色？</summary><p>首页逐个平台显示状态，携程还会标出辅助功能、屏幕录制和窗口检查结果。缺哪项就点对应按钮处理。更新后开关已开但仍提示未授权时，展开“权限已经打开，还是提示未授权？”，点“修复旧授权并重新允许”，按系统提示重新授权。两个平台都变为绿色“已连接”后，顶部会显示“可以开始采集”。若系统要求 Touch ID 或重启应用，请在本机照提示操作。历史任务和门店表保留。</p></details>
         <details><summary>如何停止？下次还能查看结果吗？</summary><p>关闭应用窗口，或按 Command + Q。已保存的数据保留在本机；下次从“历史任务”查看或继续。</p></details>
-        <details><summary>以后能直接在应用里更新吗？</summary><p>v1.3.2 左下角可“检查更新”并打开这个固定下载页。发现新版后下载替换，旧包和旧应用不会自动升级。这次更新不需要重新上传已有名单；系统权限可能需要按提示重新允许。</p></details>
-        <details><summary>维护者：源码与文件校验</summary><p><a href="https://github.com/yishenweizhong/hotel-price-scripts/releases/download/v1.3.2-app/HotelPriceApp-source-v1.3.2.zip" download>下载源代码</a>。应用 ZIP 的 SHA-256：<code class="checksum">46fb89aef56215688801ae0f79669e290408e4f5edf05812a7b6f300e647b301</code>。</p></details>
+        <details><summary>以后能直接在应用里更新吗？</summary><p>v1.3.3 左下角可“检查更新”并打开这个固定下载页。发现新版后下载替换，旧包和旧应用不会自动升级。这次更新不需要重新上传已有名单；系统权限可能需要按提示重新允许。</p></details>
+        <details><summary>维护者：源码与文件校验</summary><p><a href="https://github.com/yishenweizhong/hotel-price-scripts/releases/download/v1.3.3-app/HotelPriceApp-source-v1.3.3.zip" download>下载源代码</a>。应用 ZIP 的 SHA-256：<code class="checksum">4fae68b62d1d61b67312963a760f4ef16c4b217c51adef70c6a2837a22261313</code>。</p></details>
       </section>
     </main>
     <footer><span>免费 Mac 应用。此页不代表携程或抖音官方产品。</span><button class="share" id="share" type="button">复制页面网址</button><span id="share-status" role="status" aria-live="polite"></span></footer>
