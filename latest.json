@@ -1,9 +1,9 @@
 {
-  "version": "1.3.4",
+  "version": "1.3.5",
   "architecture": "arm64",
   "minimum_macos": "13.0",
   "published": "2026-11-13",
-  "download_url": "https://github.com/yishenweizhong/hotel-price-scripts/releases/download/v1.3.4-app/HotelPriceApp-macOS-arm64-v1.3.4.zip",
-  "sha256": "a071d46a465990afac1a9572d2375fb095d6a4cbb311831510e911c8fc8f50cc",
-  "bytes": 71058797
+  "download_url": "https://github.com/yishenweizhong/hotel-price-scripts/releases/download/v1.3.5-app/HotelPriceApp-macOS-arm64-v1.3.5.zip",
+  "sha256": "c87cdd2ae775b0ed040d64b2146f212c7fd6feea21e228c36662917453bf1bec",
+  "bytes": 71060138
 }
